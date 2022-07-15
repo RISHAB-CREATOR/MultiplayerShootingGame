@@ -1,0 +1,26 @@
+<html>
+  <body>
+    <script src="ammo.js"></script>
+    <div id='output'></div>
+    <hr>
+    <script type='text/javascript'>
+      var Module = {
+        print: (function() {
+          var element = document.getElementById('output');
+          return function(text) {
+            element.innerHTML += text.replace('\n', '<br>', 'g') + '<br>';
+          };
+        })()
+      };
+      var startTime = Date.now();
+      var print = Module.print;
+    </script>
+    <script src="ammo.js"></script>
+    <script src="stress.js"></script>
+    <script>
+      Module.print('--------------');
+      Module.print('Total time of everything: ' + ((Date.now() - startTime)/1000));
+    </script>
+  </body>
+</html>
+
